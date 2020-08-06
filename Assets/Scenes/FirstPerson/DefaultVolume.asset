@@ -39,13 +39,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   focusMode:
     m_OverrideState: 1
     m_Value: 1
   focusDistance:
     m_OverrideState: 1
-    m_Value: 7.39
+    m_Value: 1.02
     min: 0.1
   nearFocusStart:
     m_OverrideState: 0
