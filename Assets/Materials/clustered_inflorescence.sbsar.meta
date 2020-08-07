@@ -232,7 +232,7 @@ ScriptedImporter:
       - name: _HeightCenter
         float: 0.5
       - name: _HeightMapParametrization
-        float: 0
+        float: 1
       - name: _HeightMax
         float: 1
       - name: _HeightMin

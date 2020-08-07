@@ -273,6 +273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LankyTree_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7087200961041043365, guid: 495f810a41c883c41ae5b4a9f57de569,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 30e77926b03103145b08a0a013c9a712, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 495f810a41c883c41ae5b4a9f57de569, type: 3}
 --- !u!4 &1794938700220519189 stripped
