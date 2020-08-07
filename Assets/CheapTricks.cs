@@ -20,10 +20,6 @@ public class CheapTricks : MonoBehaviour
     private Light _lightSource;
     private float _baseIntensity;
 
-    [Header("Lurker")]
-    public GameObject Lurker;
-    public Transform Player;
-    public float spawnDistance = 10f;
 
 
 
@@ -39,38 +35,17 @@ public class CheapTricks : MonoBehaviour
 
 
 
-        if (Input.GetButtonDown("Fire2"))
+        if (isOn && turnOff)
         {
-            if (isOn)
-            {
-                StartCoroutine(TurnOffLight());
-                isOn = false;
-            }
-            else if (!isOn)
-            {
-                StartCoroutine(TurnOnLight());
-                isOn = true;
-            }
+            StartCoroutine(TurnOffLight());
+            isOn = false;
         }
 
-        if (Input.GetButtonDown("Fire3"))
+        if (!isOn && !turnOff)
         {
-
-            Vector3 playerPos = Player.position;
-            playerPos.y = 0.5f;
-            Vector3 playerDirection = Player.forward;
-            Quaternion playerRotation = Player.localRotation;
-
-
-            Vector3 LurkerLoc = playerPos + playerDirection * spawnDistance;
-            Lurker.transform.position = LurkerLoc;
-
-            Vector3 Targetposition = new Vector3(Player.position.x, 0.5f, Player.position.z);
-            Lurker.transform.LookAt(Targetposition);
-
-            Lurker.SetActive(true);
+            StartCoroutine(TurnOnLight());
+            isOn = true;
         }
-
 
     }
 
