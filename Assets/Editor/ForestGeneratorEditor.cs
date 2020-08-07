@@ -14,6 +14,7 @@ public class ForestGeneratorEditor : Editor
     public override void OnInspectorGUI()
     {
         DrawDefaultInspector();
+        EditorGUILayout.HelpBox("make sure forest bounding box is not intersecting with any other colliders before generating", MessageType.Warning);
 
         generateForest myForestGenerator = (generateForest)target;
 
