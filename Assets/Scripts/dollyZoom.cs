@@ -37,7 +37,7 @@ public class dollyZoom : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButtonDown("Fire1"))
         {
             zoom = true;
         }
