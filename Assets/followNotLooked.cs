@@ -34,7 +34,7 @@ public class followNotLooked : MonoBehaviour
 
         float dist = Vector3.Distance(transform.position, target.position);
 
-        if (move && dist > 1)
+        if (move && dist > 2)
         {
             transform.LookAt(target);
             transform.position += transform.forward * Time.deltaTime * speed;
