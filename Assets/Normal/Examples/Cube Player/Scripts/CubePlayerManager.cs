@@ -22,7 +22,7 @@ namespace Normal.Realtime.Examples
             string prefabName = playerPrefab.transform.name;
             // Instantiate the CubePlayer for this client once we've successfully connected to the room
             Realtime.Instantiate(prefabName,                 // Prefab name
-                                position: Vector3.up,          // Start 1 meter in the air
+                                position: new Vector3(0f, 3f, 0f),          // Start 1 meter in the air
                                 rotation: Quaternion.identity, // No rotation
                            ownedByClient: true,                // Make sure the RealtimeView on this prefab is owned by this client
                 preventOwnershipTakeover: true,                // Prevent other clients from calling RequestOwnership() on the root RealtimeView.
