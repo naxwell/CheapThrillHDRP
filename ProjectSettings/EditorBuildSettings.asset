@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/samplescene.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
   - enabled: 1
+    path: Assets/Scenes/JoinRoom.unity
+    guid: 3158f8cfbec4dd649a03edb8a81f6f77
+  - enabled: 0
     path: Assets/Scenes/FirstPerson.unity
     guid: 46be36859a9d32049be2e9f85a63b34e
   m_configObjects: {}
