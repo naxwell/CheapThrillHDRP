@@ -17,6 +17,7 @@ public class CheapTricks : MonoBehaviour
     public float Strength;
     bool StopFlickering = true;
 
+    public directLight _directLight;
     private Light _lightSource;
     private float _baseIntensity;
 
@@ -109,7 +110,9 @@ public class CheapTricks : MonoBehaviour
 
         while (!StopFlickering)
         {
-            _lightSource.intensity = Mathf.Lerp(_lightSource.intensity, Random.Range(_baseIntensity - MaxReduction, _baseIntensity + MaxIncrease), Strength * Time.deltaTime);
+            float intens = Mathf.Lerp(_lightSource.intensity, Random.Range(_baseIntensity - MaxReduction, _baseIntensity + MaxIncrease), Strength * Time.deltaTime);
+            _directLight.SetIntensity(intens);
+            // _lightSource.intensity = Mathf.Lerp(_lightSource.intensity, Random.Range(_baseIntensity - MaxReduction, _baseIntensity + MaxIncrease), Strength * Time.deltaTime);
             yield return new WaitForSeconds(RateDamping);
         }
 
