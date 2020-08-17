@@ -32,6 +32,11 @@ public class CustomMouseLook : MonoBehaviour
     void Update()
     {
 
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
         // If this prefab is not owned by this client, bail.
         if (!_realtimeView.isOwnedLocally)
             return;

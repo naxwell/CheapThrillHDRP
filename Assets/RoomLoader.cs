@@ -11,6 +11,8 @@ public class RoomLoader : MonoBehaviour
     public string roomName;
     private Realtime _realtime;
     public Text _text;
+    public GameObject roomCanvas;
+
 
 
     void Awake()
@@ -33,7 +35,10 @@ public class RoomLoader : MonoBehaviour
     public void loadRoom()
     {
         _realtime.Disconnect();
+        roomCanvas.SetActive(false);
+
         _realtime.Connect(roomName);
+
         //SceneManager.LoadScene(1);
     }
 }

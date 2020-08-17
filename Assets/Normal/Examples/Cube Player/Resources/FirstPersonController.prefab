@@ -246,7 +246,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8853277976307180606
 Transform:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ Transform:
   m_GameObject: {fileID: 8853277976307180605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.8, z: 1.2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8853277977239999148}
   m_RootOrder: 1
@@ -369,7 +369,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 9113110744006428519}
   - component: {fileID: 7250356756839586792}
   - component: {fileID: 1830707051}
+  - component: {fileID: 2437471763932199814}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Untagged
@@ -584,8 +585,8 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 3.8
-  m_Radius: 0.6
+  m_Height: 2
+  m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -604,14 +605,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8853277977239999139}
-  speed: 12
+  speed: 5
   gravity: -19.62
   groundCheck: {fileID: 8853277975895374811}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 512
-  jumpHeight: 3
+  jumpHeight: 1
 --- !u!114 &9113110744006428519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,3 +669,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2437471763932199814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853277977239999138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb9ee8f29020cc4180af6e1210c5f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCam: {fileID: 0}
+  _directionalLight: {fileID: 0}
