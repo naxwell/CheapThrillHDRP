@@ -37,22 +37,22 @@ public class syncLightFlicker : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetButtonDown("Fire2"))
-        {
-            if (_lightSource.intensity == 75)
-            {
-                StartCoroutine(TurnOffLight());
+        // if (Input.GetButtonDown("Fire2"))
+        // {
+        //     if (_lightSource.intensity == 75)
+        //     {
+        //         StartCoroutine(TurnOffLight());
 
-            }
-            else if (_lightSource.intensity == 0)
-            {
-                StartCoroutine(TurnOnLight());
+        //     }
+        //     else if (_lightSource.intensity == 0)
+        //     {
+        //         StartCoroutine(TurnOnLight());
 
-            }
-        }
+        //     }
+        // }
     }
 
-    private IEnumerator TurnOnLight()
+    public IEnumerator TurnOnLight()
     {
         StopFlickering = false;
 
@@ -66,7 +66,7 @@ public class syncLightFlicker : MonoBehaviour
 
     }
 
-    private IEnumerator TurnOffLight()
+    public IEnumerator TurnOffLight()
     {
         StopFlickering = false;
         StartCoroutine(DoFlicker());
