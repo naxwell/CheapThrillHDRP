@@ -16,6 +16,7 @@ public class powerUp : MonoBehaviour
     public string availPowerUp;
 
     public Canvas powerUpCanvas;
+    public Text powerUpText;
 
 
 
@@ -26,7 +27,7 @@ public class powerUp : MonoBehaviour
     void Start()
     {
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
-        //powerUpName.text = "Powerup Available Here: " + availPowerUp;
+        powerUpText.text = "Powerup Available Here: " + availPowerUp;
     }
 
     // Update is called once per frame

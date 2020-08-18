@@ -12,12 +12,14 @@ public class Lurker : MonoBehaviour
     public float spawnDistance = 10f;
     public Transform lurkerHideout;
 
-    private RealtimeTransform _realtime;
+    private RealtimeTransform _realtimeTrans;
+    private RealtimeView _realtimeView;
 
     // Start is called before the first frame update
     void Start()
     {
-        _realtime = GetComponent<RealtimeTransform>();
+        _realtimeTrans = GetComponent<RealtimeTransform>();
+        _realtimeView = GetComponent<RealtimeView>();
 
     }
 
@@ -41,7 +43,8 @@ public class Lurker : MonoBehaviour
 
     public IEnumerator lurk()
     {
-        _realtime.RequestOwnership();
+        _realtimeTrans.RequestOwnership();
+        _realtimeView.RequestOwnership();
         Player = GameObject.FindGameObjectsWithTag("Player");
         controllerPlayer = Player[Random.Range(0, Player.Length)].transform;
 
@@ -63,6 +66,7 @@ public class Lurker : MonoBehaviour
         yield return new WaitForSeconds(3);
         _lurker.transform.position = lurkerHideout.position;
         yield return new WaitForSeconds(3);
-        _realtime.ClearOwnership();
+        _realtimeTrans.ClearOwnership();
+        _realtimeView.ClearOwnership();
     }
 }
