@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 1789066627}
   - component: {fileID: 1789066629}
   - component: {fileID: 1789066628}
+  - component: {fileID: 963085208263977080}
+  - component: {fileID: 5360142097950451276}
+  - component: {fileID: 546791283166811664}
   m_Layer: 0
-  m_Name: Spot Light (1)
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,6 +206,55 @@ MonoBehaviour:
   showAdditionalSettings: 0
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
+--- !u!114 &963085208263977080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789066626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dbb2c176cf64da44b584be9e87628f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _power: 0
+--- !u!114 &5360142097950451276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789066626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1011e140c5c34458f64fd8ad5095b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _realtime: {fileID: 0}
+  _sceneViewUUID: 
+  _sceneViewOwnedByCreatingClient: 1
+  _sceneViewPreventOwnershipTakeover: 0
+  _sceneViewDestroyWhenOwnerOrLastClientLeaves: 1
+  _isRootPrefabView: 0
+  _components:
+  - componentID: 1
+    component: {fileID: 546791283166811664}
+    componentIDHasBeenUsed: 1
+  _parentView: {fileID: 9113110744006428519}
+  _childViews: []
+--- !u!114 &546791283166811664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789066626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d31be8606118541b05a77a1ba0f670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8853277975895374810
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,9 +694,9 @@ MonoBehaviour:
   _parentView: {fileID: 0}
   _childViews:
   - viewID: 1
-    view: {fileID: 0}
+    view: {fileID: 5360142097950451276}
     viewIDHasBeenUsed: 1
-    viewToUseIfMovedBack: {fileID: 0}
+    viewToUseIfMovedBack: {fileID: 5360142097950451276}
 --- !u!114 &7250356756839586792
 MonoBehaviour:
   m_ObjectHideFlags: 0
