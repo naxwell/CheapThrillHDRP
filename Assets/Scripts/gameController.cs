@@ -6,6 +6,7 @@ using Normal.Realtime;
 public class gameController : MonoBehaviour
 {
 
+    public GameObject Player;
     [Header("Lurker Shit")]
     public GameObject _lurker;
     public bool _hasLuker = false;
@@ -19,7 +20,8 @@ public class gameController : MonoBehaviour
     public bool _hasLightingControl = false;
 
     [Header("Flashlight Control")]
-    public Light Flashlight;
+    public flashlightTest _flashlight;
+    public bool _hasFlashlightControl = false;
 
 
     // Start is called before the first frame update
@@ -30,11 +32,21 @@ public class gameController : MonoBehaviour
         _lurkerRealtime = _lurker.GetComponent<RealtimeTransform>();
         _lurkScript = _lurker.GetComponent<Lurker>();
         _flickerScript = _lightSource.GetComponent<syncLightFlicker>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+
+        if (_flashlight == null)
+        {
+            _flashlight = Player.GetComponentInChildren<flashlightTest>();
+        }
+
+
         if (Input.GetButtonDown("Fire3") && _hasLuker)
         {
             _lurkScript.startLurk();
@@ -53,6 +65,11 @@ public class gameController : MonoBehaviour
                 StartCoroutine(_flickerScript.TurnOnLight());
 
             }
+        }
+
+        if (Input.GetButtonDown("Fire2") && _hasFlashlightControl)
+        {
+            _flashlight.flashlightFlip();
         }
 
     }

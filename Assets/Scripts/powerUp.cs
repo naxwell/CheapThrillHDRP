@@ -73,6 +73,11 @@ public class powerUp : MonoBehaviour
             _gameController._hasLuker = true;
         }
 
+        if (availPowerUp == "flashlightControl")
+        {
+            _gameController._hasFlashlightControl = true;
+        }
+
         Vector3 newLoc = new Vector3(Random.Range(m_Min.x, m_Max.x), 0, Random.Range(m_Min.z, m_Max.z));
         transform.position = newLoc;
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
