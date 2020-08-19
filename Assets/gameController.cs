@@ -17,6 +17,11 @@ public class gameController : MonoBehaviour
     public Light _lightSource;
     private syncLightFlicker _flickerScript;
     public bool _hasLightingControl = false;
+
+    [Header("Flashlight Control")]
+    public Light Flashlight;
+
+
     // Start is called before the first frame update
 
     void Start()
