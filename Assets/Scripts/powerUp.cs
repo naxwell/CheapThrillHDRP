@@ -29,10 +29,6 @@ public class powerUp : MonoBehaviour
     private RealtimeTransform _realtimeTrans;
 
 
-
-
-
-
     public gameController _gameController;
     // Start is called before the first frame update
     void Start()
@@ -65,7 +61,6 @@ public class powerUp : MonoBehaviour
         {
             _gameController._hasLightingControl = true;
 
-
         }
 
         if (availPowerUp == "lurker")
@@ -76,6 +71,11 @@ public class powerUp : MonoBehaviour
         if (availPowerUp == "flashlightControl")
         {
             _gameController._hasFlashlightControl = true;
+        }
+
+        if (availPowerUp == "scream")
+        {
+            _gameController._hasScreamControl = true;
         }
 
         Vector3 newLoc = new Vector3(Random.Range(m_Min.x, m_Max.x), 0, Random.Range(m_Min.z, m_Max.z));

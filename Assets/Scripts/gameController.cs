@@ -23,6 +23,10 @@ public class gameController : MonoBehaviour
     public flashlightTest _flashlight;
     public bool _hasFlashlightControl = false;
 
+    [Header("Scream Stuff")]
+    public syncScream _syncScream;
+    public bool _hasScreamControl;
+
 
     // Start is called before the first frame update
 
@@ -71,6 +75,9 @@ public class gameController : MonoBehaviour
         {
             _flashlight.flashlightFlip();
         }
-
+        if (Input.GetButtonDown("Fire2") && _hasScreamControl)
+        {
+            _syncScream.SetScream(true);
+        }
     }
 }
