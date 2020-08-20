@@ -25,6 +25,7 @@ public class gameController : MonoBehaviour
 
     [Header("Scream Stuff")]
     public syncScream _syncScream;
+    public screamTest _screamScript;
     public bool _hasScreamControl;
 
 
@@ -38,6 +39,7 @@ public class gameController : MonoBehaviour
         _flickerScript = _lightSource.GetComponent<syncLightFlicker>();
 
 
+
     }
 
     // Update is called once per frame
@@ -48,6 +50,8 @@ public class gameController : MonoBehaviour
         if (_flashlight == null)
         {
             _flashlight = Player.GetComponentInChildren<flashlightTest>();
+            _syncScream = Player.GetComponentInChildren<syncScream>();
+            _screamScript = Player.GetComponentInChildren<screamTest>();
         }
 
 
@@ -77,7 +81,8 @@ public class gameController : MonoBehaviour
         }
         if (Input.GetButtonDown("Fire2") && _hasScreamControl)
         {
-            _syncScream.SetScream(true);
+            _screamScript.Scream();
+            //_syncScream.SetScream(true);
         }
     }
 }
