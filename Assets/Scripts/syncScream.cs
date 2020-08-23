@@ -8,10 +8,12 @@ public class syncScream : RealtimeComponent
 
     private screamTest _scream;
     private syncScreamModel _model;
-    // Start is called before the first frame update
-    void Start()
+
+    private AudioSource _audio;
+    void Awake()
     {
         _scream = GetComponent<screamTest>();
+        _audio = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -30,6 +32,10 @@ public class syncScream : RealtimeComponent
 
             if (_model != null)
             {
+
+                UpdateScreamBool();
+
+
                 _model.screamDidChange += ScreamDidChange;
             }
         }
@@ -43,6 +49,11 @@ public class syncScream : RealtimeComponent
     private void UpdateScreamBool()
     {
         _scream._screamNow = _model.scream;
+        if (_scream._screamNow)
+        {
+            _audio.Play();
+        }
+
     }
 
     public void SetScream(bool scream)

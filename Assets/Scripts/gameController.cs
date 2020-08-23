@@ -79,10 +79,12 @@ public class gameController : MonoBehaviour
         {
             _flashlight.flashlightFlip();
         }
+
         if (Input.GetButtonDown("Fire2") && _hasScreamControl)
         {
-            _screamScript.Scream();
             //_syncScream.SetScream(true);
+            _screamScript.Scream();
+
         }
     }
 }

@@ -16,7 +16,7 @@ public class screamTest : MonoBehaviour
         _as = GetComponent<AudioSource>();
         _syncScream = GetComponent<syncScream>();
         _realtime = GetComponent<RealtimeView>();
-        _realtime.RequestOwnership();
+        //_realtime.RequestOwnership();
     }
 
     // Update is called once per frame
@@ -27,22 +27,23 @@ public class screamTest : MonoBehaviour
         if (_screamNow && !_lastScream)
         {
 
-            //_syncScream.SetScream(true);
-            _lastScream = true;
-            _as.Play();
+            _realtime.RequestOwnership();
+            StartCoroutine(Screaming());
+
 
         }
-        else if (_screamNow && _lastScream)
-        {
 
-            _syncScream.SetScream(false);
-        }
+    }
 
-        if (!_as.isPlaying)
-        {
-            _lastScream = false;
+    public IEnumerator Screaming()
+    {
+        _lastScream = true;
+        //_as.Play();
+        yield return new WaitForSeconds(2);
+        _syncScream.SetScream(false);
+        _lastScream = false;
+        _realtime.ClearOwnership();
 
-        }
     }
 
     public void Scream()
