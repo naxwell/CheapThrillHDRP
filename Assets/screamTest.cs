@@ -24,14 +24,16 @@ public class screamTest : MonoBehaviour
     {
 
 
-        if (_screamNow && !_lastScream)
-        {
+        // if (_screamNow && !_lastScream)
+        // {
 
-            _realtime.RequestOwnership();
-            StartCoroutine(Screaming());
+        //     _realtime.RequestOwnership();
+        //     StartCoroutine(Screaming());
 
 
-        }
+        // }
+
+
 
     }
 
@@ -42,6 +44,7 @@ public class screamTest : MonoBehaviour
         yield return new WaitForSeconds(2);
         _syncScream.SetScream(false);
         _lastScream = false;
+        Debug.Log("set off by: " + _realtime.ownerID);
         _realtime.ClearOwnership();
 
     }

@@ -24,12 +24,11 @@ public class gameController : MonoBehaviour
     public bool _hasFlashlightControl = false;
 
     [Header("Scream Stuff")]
-    public syncScream _syncScream;
-    public screamTest _screamScript;
+
+    public audioSync _audioSync;
     public bool _hasScreamControl;
 
 
-    // Start is called before the first frame update
 
     void Start()
     {
@@ -50,8 +49,15 @@ public class gameController : MonoBehaviour
         if (_flashlight == null)
         {
             _flashlight = Player.GetComponentInChildren<flashlightTest>();
-            _syncScream = Player.GetComponentInChildren<syncScream>();
-            _screamScript = Player.GetComponentInChildren<screamTest>();
+            // _syncScream = Player.GetComponentInChildren<syncScream>();
+            // _screamScript = Player.GetComponentInChildren<screamTest>();
+
+        }
+
+        if (_audioSync == null)
+        {
+
+            _audioSync = Player.GetComponentInChildren<audioSync>();
         }
 
 
@@ -83,7 +89,10 @@ public class gameController : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && _hasScreamControl)
         {
             //_syncScream.SetScream(true);
-            _screamScript.Scream();
+            //_screamScript.Scream();
+            //float random = Random.Range(0f, 1000f);
+            _audioSync.SetRandomNumber(Random.Range(0f, 1000f));
+
 
         }
     }
