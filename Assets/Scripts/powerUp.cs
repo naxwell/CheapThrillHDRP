@@ -30,6 +30,9 @@ public class powerUp : MonoBehaviour
 
 
     public gameController _gameController;
+
+
+    private AudioSource _as;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +41,8 @@ public class powerUp : MonoBehaviour
 
         _realtimeTrans = GetComponent<RealtimeTransform>();
         _realtimeView = GetComponent<RealtimeView>();
+
+        _as = GetComponent<AudioSource>();
 
         //find min and max bound of floor collider for power up location generation 
         m_Min = m_Collider.bounds.min;
@@ -82,6 +87,9 @@ public class powerUp : MonoBehaviour
         transform.position = newLoc;
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
         powerUpText.text = "Powerup Available Here: " + availPowerUp;
+
+        _as.Play();
+
 
 
 
