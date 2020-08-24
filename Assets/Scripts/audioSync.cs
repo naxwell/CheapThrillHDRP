@@ -9,7 +9,7 @@ public class audioSync : RealtimeComponent
     private AudioSource _audioSource;
     private audioSyncModel _model;
     // Start is called before the first frame update
-    private void Awake()
+    void Awake()
     {
         _audioSource = GetComponent<AudioSource>();
     }
@@ -23,7 +23,9 @@ public class audioSync : RealtimeComponent
             {
                 _model.randomNumberDidChange -= RandomNumberDidChange;
             }
+
             _model = value;
+
             if (_model != null)
             {
                 UpdateAudio();
