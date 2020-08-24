@@ -15,6 +15,9 @@ public class powerUpUI : MonoBehaviour
 
     public Texture2D empty;
     public Texture2D flashlightImage;
+    public Texture2D environmentalLighting;
+    public Texture2D lurkerImage;
+    public Texture2D soundImage;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,33 @@ public class powerUpUI : MonoBehaviour
         else if (!_gameController._hasFlashlightControl && yButton.texture != empty)
         {
             yButton.texture = empty;
+        }
+
+        if (_gameController._hasLightingControl && bButton.texture != environmentalLighting)
+        {
+            bButton.texture = environmentalLighting;
+        }
+        else if (!_gameController._hasLightingControl && bButton.texture != empty)
+        {
+            bButton.texture = empty;
+        }
+
+        if (_gameController._hasLuker && xButton.texture != lurkerImage)
+        {
+            xButton.texture = lurkerImage;
+        }
+        else if (!_gameController._hasLuker && xButton.texture != empty)
+        {
+            xButton.texture = empty;
+        }
+
+        if (_gameController._hasScreamControl && aButton.texture != soundImage)
+        {
+            aButton.texture = soundImage;
+        }
+        else if (!_gameController._hasScreamControl && aButton.texture != empty)
+        {
+            aButton.texture = empty;
         }
 
     }
