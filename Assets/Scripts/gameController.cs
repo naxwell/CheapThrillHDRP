@@ -61,13 +61,13 @@ public class gameController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("Fire3") && _hasLuker)
+        if (Input.GetButtonDown("xboxX") && _hasLuker)
         {
             _lurkScript.startLurk();
 
         }
 
-        if (Input.GetButtonDown("Fire2") && _hasLightingControl)
+        if (Input.GetButtonDown("xboxB") && _hasLightingControl)
         {
             if (_lightSource.intensity == 75)
             {
@@ -81,12 +81,12 @@ public class gameController : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("Fire2") && _hasFlashlightControl)
+        if (Input.GetButtonDown("xboxY") && _hasFlashlightControl)
         {
             _flashlight.flashlightFlip();
         }
 
-        if (Input.GetButtonDown("Fire2") && _hasScreamControl)
+        if (Input.GetButtonDown("xboxA") && _hasScreamControl)
         {
             //_syncScream.SetScream(true);
             //_screamScript.Scream();

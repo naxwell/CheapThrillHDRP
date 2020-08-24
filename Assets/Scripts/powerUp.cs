@@ -85,8 +85,7 @@ public class powerUp : MonoBehaviour
 
         Vector3 newLoc = new Vector3(Random.Range(m_Min.x, m_Max.x), 0, Random.Range(m_Min.z, m_Max.z));
         transform.position = newLoc;
-        availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
-        powerUpText.text = "Powerup Available Here: " + availPowerUp;
+
 
         _as.Play();
 
@@ -97,6 +96,9 @@ public class powerUp : MonoBehaviour
 
     void OnTriggerExit()
     {
+
+        availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
+        powerUpText.text = "Powerup Available Here: " + availPowerUp;
         _realtimeTrans.ClearOwnership();
         _realtimeView.ClearOwnership();
     }
