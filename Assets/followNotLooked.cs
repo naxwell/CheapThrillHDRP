@@ -5,7 +5,7 @@ using UnityEngine;
 public class followNotLooked : MonoBehaviour
 {
 
-    public Transform[] Players;
+    public GameObject[] Players;
     public float speed = 1f;
     public bool move;
 
@@ -16,8 +16,9 @@ public class followNotLooked : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_Renderer = GetComponent<Renderer>();
-        target = Players[Random.Range(0, Players.Length)];
+        m_Renderer = GetComponentInChildren<Renderer>();
+        Players = GameObject.FindGameObjectsWithTag("Player");
+        target = Players[Random.Range(0, Players.Length)].transform;
     }
 
     // Update is called once per frame

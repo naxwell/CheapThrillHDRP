@@ -15,23 +15,40 @@ public class Lurker : MonoBehaviour
     private RealtimeTransform _realtimeTrans;
     private RealtimeView _realtimeView;
 
+
+    public GameObject OwnedPlayer;
+
     // Start is called before the first frame update
     void Start()
     {
         _realtimeTrans = GetComponent<RealtimeTransform>();
         _realtimeView = GetComponent<RealtimeView>();
 
+
+        Player = GameObject.FindGameObjectsWithTag("Player");
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        // if (Input.GetButtonDown("Fire3") && _realtime.isOwnedByWorld)
-        // {
+        if (OwnedPlayer == null)
+        {
+            Debug.Log("Null Player on lurkie");
+            Player = GameObject.FindGameObjectsWithTag("Player");
+            foreach (GameObject players in Player)
+            {
 
-        //     StartCoroutine(lurk());
+                RealtimeView _realtime = players.GetComponent<RealtimeView>();
+                if (_realtime.isOwnedLocally)
+                {
 
-        // }
+                    OwnedPlayer = players;
+                }
+            }
+        }
+
+
     }
 
     public void startLurk()
@@ -43,10 +60,13 @@ public class Lurker : MonoBehaviour
 
     public IEnumerator lurk()
     {
+
+
         _realtimeTrans.RequestOwnership();
         _realtimeView.RequestOwnership();
-        Player = GameObject.FindGameObjectsWithTag("Player");
-        controllerPlayer = Player[Random.Range(0, Player.Length)].transform;
+        //Player = GameObject.FindGameObjectsWithTag("Player");
+        //controllerPlayer = Player[Random.Range(0, Player.Length)].transform;
+        controllerPlayer = OwnedPlayer.transform;
 
         Vector3 playerPos = controllerPlayer.position;
         playerPos.y = 0.5f;
@@ -58,8 +78,9 @@ public class Lurker : MonoBehaviour
         LurkerLoc.x = Random.Range(LurkerLoc.x - 5, LurkerLoc.x + 5);
         _lurker.transform.position = LurkerLoc;
 
-        Vector3 Targetposition = new Vector3(controllerPlayer.position.x, 0.5f, controllerPlayer.position.z);
-        _lurker.transform.LookAt(Targetposition);
+        //Vector3 Targetposition = new Vector3(controllerPlayer.position.x, 0.5f, controllerPlayer.position.z);
+        ///_lurker.transform.LookAt(Targetposition);
+        _lurker.transform.rotation = Quaternion.LookRotation(controllerPlayer.transform.forward);
 
         //_lurker.SetActive(true);
 
