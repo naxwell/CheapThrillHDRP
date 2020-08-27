@@ -18,9 +18,9 @@ ScriptedImporter:
     generateMipMaps: 1
     preset: " <sbspreset pkgurl=\"pkg://flesh_carbonized\" label=\"\" >\n  <presetinput
       identifier=\"$outputsize\" uid=\"939277711\" type=\"8\" value=\"9,9\" />\n 
-      <presetinput identifier=\"skin_color\" uid=\"1120515508\" type=\"2\" value=\"0.632075,0.538766,0.438279\"
+      <presetinput identifier=\"skin_color\" uid=\"1120515508\" type=\"2\" value=\"0.886792,0.729034,0.564703\"
       />\n  <presetinput identifier=\"carbonized_skin_color\" uid=\"1120515668\"
-      type=\"2\" value=\"0.358491,0.200503,0.174172\" />\n  <presetinput identifier=\"flesh_carbonized_amount\"
+      type=\"2\" value=\"0.367925,0.130125,0.0885101\" />\n  <presetinput identifier=\"flesh_carbonized_amount\"
       uid=\"1123335671\" type=\"0\" value=\"0.579\" />\n </sbspreset>\n"
     shaderName: HDRP/LitTessellation
     materialProperties:
@@ -182,7 +182,7 @@ ScriptedImporter:
       - name: _DistortionBlurBlendMode
         float: 0
       - name: _DistortionBlurDstBlend
-        float: 0
+        float: 1
       - name: _DistortionBlurRemapMax
         float: 1
       - name: _DistortionBlurRemapMin
@@ -190,17 +190,17 @@ ScriptedImporter:
       - name: _DistortionBlurScale
         float: 1
       - name: _DistortionBlurSrcBlend
-        float: 0
+        float: 1
       - name: _DistortionDepthTest
         float: 1
       - name: _DistortionDstBlend
-        float: 0
+        float: 1
       - name: _DistortionEnable
         float: 0
       - name: _DistortionScale
         float: 1
       - name: _DistortionSrcBlend
-        float: 0
+        float: 1
       - name: _DistortionVectorBias
         float: -1
       - name: _DistortionVectorScale
@@ -294,25 +294,25 @@ ScriptedImporter:
       - name: _SrcBlend
         float: 1
       - name: _StencilRef
-        float: 2
-      - name: _StencilRefDepth
         float: 0
+      - name: _StencilRefDepth
+        float: 8
       - name: _StencilRefDistortionVec
-        float: 64
+        float: 4
       - name: _StencilRefGBuffer
-        float: 2
+        float: 10
       - name: _StencilRefMV
-        float: 128
+        float: 40
       - name: _StencilWriteMask
-        float: 3
+        float: 6
       - name: _StencilWriteMaskDepth
-        float: 32
+        float: 8
       - name: _StencilWriteMaskDistortionVec
-        float: 64
+        float: 4
       - name: _StencilWriteMaskGBuffer
-        float: 3
+        float: 14
       - name: _StencilWriteMaskMV
-        float: 128
+        float: 40
       - name: _SubsurfaceMask
         float: 1
       - name: _SupportDecals
@@ -368,11 +368,11 @@ ScriptedImporter:
       - name: _UseShadowThreshold
         float: 0
       - name: _ZTestDepthEqualForOpaque
-        float: 4
+        float: 3
       - name: _ZTestGBuffer
         float: 4
       - name: _ZTestModeDistortion
-        float: 8
+        float: 4
       - name: _ZTestTransparent
         float: 4
       - name: _ZWrite

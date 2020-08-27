@@ -28,6 +28,10 @@ public class gameController : MonoBehaviour
     public audioSync _audioSync;
     public bool _hasScreamControl;
 
+    [Header("Crunch Stuff")]
+    public audioSync _crunchSync;
+    public bool _hasCrunchControl = false;
+
 
 
     void Start()
@@ -35,7 +39,9 @@ public class gameController : MonoBehaviour
         _lurker = GameObject.Find("Lurker");
         _lurkerRealtime = _lurker.GetComponent<RealtimeTransform>();
         _lurkScript = _lurker.GetComponent<Lurker>();
+        _lightSource = GameObject.Find("Directional Light").GetComponent<Light>(); ;
         _flickerScript = _lightSource.GetComponent<syncLightFlicker>();
+        Player = transform.parent.gameObject;
 
 
 
@@ -94,6 +100,10 @@ public class gameController : MonoBehaviour
             _audioSync.SetRandomNumber(Random.Range(0f, 1000f));
 
 
+        }
+        else if (Input.GetButtonDown("xboxA") && _hasCrunchControl)
+        {
+            _crunchSync.SetRandomNumber(Random.Range(0f, 1000f));
         }
     }
 }

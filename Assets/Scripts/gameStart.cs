@@ -23,7 +23,7 @@ public class gameStart : MonoBehaviour
         _directionalLight.GetComponent<directLight>().SetIntensity(75);
         _gamecontroller = GameObject.Find("Game Controller");
 
-        _gamecontroller.GetComponent<gameController>().Player = this.gameObject;
+        //_gamecontroller.GetComponent<gameController>().Player = this.gameObject;
         mainCam = GameObject.Find("mainCam");
         if (mainCam != null)
         {

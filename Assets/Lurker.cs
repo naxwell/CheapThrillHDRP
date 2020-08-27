@@ -6,23 +6,25 @@ using Normal.Realtime;
 public class Lurker : MonoBehaviour
 {
     [Header("Lurker")]
-    public GameObject _lurker;
     public GameObject[] Player;
-    public Transform controllerPlayer;
+    public GameObject OwnedPlayer;
     public float spawnDistance = 10f;
-    public Transform lurkerHideout;
 
+
+    private Transform lurkerHideout;
     private RealtimeTransform _realtimeTrans;
     private RealtimeView _realtimeView;
+    private Transform controllerPlayer;
 
 
-    public GameObject OwnedPlayer;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _realtimeTrans = GetComponent<RealtimeTransform>();
         _realtimeView = GetComponent<RealtimeView>();
+        lurkerHideout = GameObject.Find("Hideout").transform;
 
 
         Player = GameObject.FindGameObjectsWithTag("Player");
@@ -76,16 +78,16 @@ public class Lurker : MonoBehaviour
 
         Vector3 LurkerLoc = playerPos + playerDirection * spawnDistance;
         LurkerLoc.x = Random.Range(LurkerLoc.x - 5, LurkerLoc.x + 5);
-        _lurker.transform.position = LurkerLoc;
+        this.gameObject.transform.position = LurkerLoc;
 
         //Vector3 Targetposition = new Vector3(controllerPlayer.position.x, 0.5f, controllerPlayer.position.z);
         ///_lurker.transform.LookAt(Targetposition);
-        _lurker.transform.rotation = Quaternion.LookRotation(controllerPlayer.transform.forward);
+        this.gameObject.transform.rotation = Quaternion.LookRotation(controllerPlayer.transform.forward);
 
         //_lurker.SetActive(true);
 
         yield return new WaitForSeconds(3);
-        _lurker.transform.position = lurkerHideout.position;
+        this.gameObject.transform.position = lurkerHideout.position;
         yield return new WaitForSeconds(3);
         _realtimeTrans.ClearOwnership();
         _realtimeView.ClearOwnership();
