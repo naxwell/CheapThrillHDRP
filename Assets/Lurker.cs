@@ -26,29 +26,30 @@ public class Lurker : MonoBehaviour
         _realtimeView = GetComponent<RealtimeView>();
         lurkerHideout = GameObject.Find("Hideout").transform;
 
-
-        Player = GameObject.FindGameObjectsWithTag("Player");
+        OwnedPlayer = transform.parent.gameObject;
+        transform.parent = null;
+        //Player = GameObject.FindGameObjectsWithTag("Player");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (OwnedPlayer == null)
-        {
-            Debug.Log("Null Player on lurkie");
-            Player = GameObject.FindGameObjectsWithTag("Player");
-            foreach (GameObject players in Player)
-            {
+        // if (OwnedPlayer == null)
+        // {
+        //     Debug.Log("Null Player on lurkie");
+        //     Player = GameObject.FindGameObjectsWithTag("Player");
+        //     foreach (GameObject players in Player)
+        //     {
 
-                RealtimeView _realtime = players.GetComponent<RealtimeView>();
-                if (_realtime.isOwnedLocally)
-                {
+        //         RealtimeView _realtime = players.GetComponent<RealtimeView>();
+        //         if (_realtime.isOwnedLocally)
+        //         {
 
-                    OwnedPlayer = players;
-                }
-            }
-        }
+        //             OwnedPlayer = players;
+        //         }
+        //     }
+        // }
 
 
     }

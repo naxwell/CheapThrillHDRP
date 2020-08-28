@@ -7,13 +7,8 @@ using Normal.Realtime;
 public class powerUp : MonoBehaviour
 {
     [Header("Available Power Up")]
-    public bool lurker;
-    public bool lightingControl;
-    public bool flashlightControl;
-    public bool follower;
-    public bool scream;
 
-    private string[] powerUps = { "lurker", "lightingControl", "flashlightControl", "follower", "scream" };
+    private string[] powerUps = { "lurker", "lightingControl", "flashlightControl", "follower", "scream", "crunch" };
     public string availPowerUp;
 
     public Canvas powerUpCanvas;
@@ -55,10 +50,10 @@ public class powerUp : MonoBehaviour
 
     }
 
-    void OnTriggerEnter()
+    void OnTriggerEnter(Collider collider)
     {
 
-
+        _gameController = collider.gameObject.GetComponentInChildren<gameController>();
         _realtimeTrans.RequestOwnership();
         _realtimeView.RequestOwnership();
 
@@ -81,6 +76,13 @@ public class powerUp : MonoBehaviour
         if (availPowerUp == "scream")
         {
             _gameController._hasScreamControl = true;
+            _gameController._hasCrunchControl = false;
+        }
+
+        if (availPowerUp == "crunch")
+        {
+            _gameController._hasScreamControl = false;
+            _gameController._hasCrunchControl = true;
         }
 
         Vector3 newLoc = new Vector3(Random.Range(m_Min.x, m_Max.x), 0, Random.Range(m_Min.z, m_Max.z));
@@ -89,14 +91,21 @@ public class powerUp : MonoBehaviour
 
         _as.Play();
 
-
+        StartCoroutine(NewPowerUp());
 
 
     }
 
+
     void OnTriggerExit()
     {
 
+
+    }
+
+    private IEnumerator NewPowerUp()
+    {
+        yield return new WaitForSeconds(2);
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
         powerUpText.text = "Powerup Available Here: " + availPowerUp;
         _realtimeTrans.ClearOwnership();

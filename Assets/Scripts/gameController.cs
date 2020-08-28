@@ -36,11 +36,14 @@ public class gameController : MonoBehaviour
 
     void Start()
     {
-        _lurker = GameObject.Find("Lurker");
+        //_lurker = GameObject.Find("Lurker");
+        _lurker = transform.parent.GetChild(6).gameObject;
         _lurkerRealtime = _lurker.GetComponent<RealtimeTransform>();
         _lurkScript = _lurker.GetComponent<Lurker>();
         _lightSource = GameObject.Find("Directional Light").GetComponent<Light>(); ;
         _flickerScript = _lightSource.GetComponent<syncLightFlicker>();
+        _audioSync = transform.parent.GetChild(3).GetComponent<audioSync>();
+        _crunchSync = transform.parent.GetChild(4).GetComponent<audioSync>();
         Player = transform.parent.gameObject;
 
 
@@ -63,7 +66,7 @@ public class gameController : MonoBehaviour
         if (_audioSync == null)
         {
 
-            _audioSync = Player.GetComponentInChildren<audioSync>();
+            // _audioSync = Player.GetComponentInChildren<audioSync>();
         }
 
 
