@@ -24,7 +24,8 @@ public class powerUpUI : MonoBehaviour
     void Start()
     {
 
-        _gameController = GetComponentInParent<gameStart>()._gamecontroller.GetComponent<gameController>();
+        //_gameController = GetComponentInParent<gameStart>()._gamecontroller.GetComponent<gameController>();
+        _gameController = transform.parent.GetComponentInChildren<gameController>();
     }
 
     // Update is called once per frame

@@ -8,7 +8,7 @@ public class gameStart : MonoBehaviour
 
     public GameObject mainCam;
     public GameObject _directionalLight;
-    public GameObject _gamecontroller;
+    public gameController _gamecontroller;
     public AudioListener _listener;
     private RealtimeView _realtime;
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class gameStart : MonoBehaviour
         _directionalLight = GameObject.Find("Directional Light");
 
         _directionalLight.GetComponent<directLight>().SetIntensity(75);
-        _gamecontroller = GameObject.Find("Game Controller");
+        _gamecontroller = GetComponentInChildren<gameController>();
 
         //_gamecontroller.GetComponent<gameController>().Player = this.gameObject;
         mainCam = GameObject.Find("mainCam");

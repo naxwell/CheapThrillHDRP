@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
+    public Vector3 prevPosition;
+    private AudioSource _as;
+    private float dist;
 
     public static Camera mainCam;
     //Normcore stuff
@@ -28,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _realtimeView = GetComponent<RealtimeView>();
         _realtimeTransform = GetComponent<RealtimeTransform>();
+        _as = GetComponent<AudioSource>();
 
 
     }
@@ -81,7 +85,21 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
+        dist = Vector3.Distance(prevPosition, transform.position);
+        if (dist < 0.01)
+        {
+
+            _as.Pause();
+        }
+        else if (!_as.isPlaying)
+        {
+            _as.Play();
+        }
+
+
+
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+        prevPosition = transform.position;
     }
 }

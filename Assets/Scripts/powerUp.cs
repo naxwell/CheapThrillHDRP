@@ -8,8 +8,9 @@ public class powerUp : MonoBehaviour
 {
     [Header("Available Power Up")]
 
-    private string[] powerUps = { "lurker", "lightingControl", "flashlightControl", "follower", "scream", "crunch" };
+    private string[] powerUps = { "lurker", "lightingControl", "flashlightControl", "scream", "crunch" };
     public string availPowerUp;
+    private string prevPowerUp;
 
     public Canvas powerUpCanvas;
     public Text powerUpText;
@@ -32,6 +33,7 @@ public class powerUp : MonoBehaviour
     void Start()
     {
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
+        prevPowerUp = availPowerUp;
         powerUpText.text = "Powerup Available Here: " + availPowerUp;
 
         _realtimeTrans = GetComponent<RealtimeTransform>();
@@ -107,6 +109,11 @@ public class powerUp : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
+        if (availPowerUp == prevPowerUp)
+        {
+            availPowerUp = powerUps[Random.Range(0, powerUps.Length)];
+        }
+        prevPowerUp = availPowerUp;
         powerUpText.text = "Powerup Available Here: " + availPowerUp;
         _realtimeTrans.ClearOwnership();
         _realtimeView.ClearOwnership();
