@@ -32,6 +32,10 @@ public class gameController : MonoBehaviour
     public audioSync _crunchSync;
     public bool _hasCrunchControl = false;
 
+    [Header("Offering Stuff")]
+    public bool hasOffering = false;
+    public bool inOfferingZone = false;
+
 
 
     void Start()
@@ -76,7 +80,7 @@ public class gameController : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("xboxB") && _hasLightingControl)
+        if (Input.GetButtonDown("xboxA") && _hasLightingControl)
         {
             if (_lightSource.intensity == 75)
             {
@@ -95,7 +99,7 @@ public class gameController : MonoBehaviour
             _flashlight.flashlightFlip();
         }
 
-        if (Input.GetButtonDown("xboxA") && _hasScreamControl)
+        if (Input.GetButtonDown("xboxB") && _hasScreamControl)
         {
             //_syncScream.SetScream(true);
             //_screamScript.Scream();
@@ -104,9 +108,33 @@ public class gameController : MonoBehaviour
 
 
         }
-        else if (Input.GetButtonDown("xboxA") && _hasCrunchControl)
+        else if (Input.GetButtonDown("xboxB") && _hasCrunchControl)
         {
             _crunchSync.SetRandomNumber(Random.Range(0f, 1000f));
+        }
+
+        if (Input.GetButtonDown("xboxA") && hasOffering && inOfferingZone)
+        {
+            hasOffering = false;
+            StartCoroutine(playerHighlight());
+            Debug.Log("REVEAL OTHER PLAYERS");
+        }
+    }
+
+
+    IEnumerator playerHighlight()
+    {
+        GameObject[] Players;
+        Players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject player in Players)
+        {
+            player.GetComponentInChildren<MeshRenderer>().enabled = true;
+        }
+
+        yield return new WaitForSeconds(10);
+        foreach (GameObject player in Players)
+        {
+            player.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
     }
 }

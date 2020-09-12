@@ -35,9 +35,9 @@ public class flashlightTest : MonoBehaviour
 
         if (_spotlight.intensity == 0f)
         {
-            _syncFlashlight.SetPower(80000f);
+            _syncFlashlight.SetPower(20000f);
         }
-        else if (_spotlight.intensity == 80000f)
+        else if (_spotlight.intensity == 20000f)
         {
             _syncFlashlight.SetPower(0f);
         }
