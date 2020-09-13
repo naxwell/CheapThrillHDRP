@@ -85,16 +85,16 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
         }
-        dist = Vector3.Distance(prevPosition, transform.position);
-        if (dist < 0.01)
-        {
+        // dist = Vector3.Distance(prevPosition, transform.position);
+        // if (dist < 0.01)
+        // {
 
-            _as.Pause();
-        }
-        else if (!_as.isPlaying)
-        {
-            _as.Play();
-        }
+        //     _as.Pause();
+        // }
+        // else if (!_as.isPlaying)
+        // {
+        //     _as.Play();
+        // }
 
 
 

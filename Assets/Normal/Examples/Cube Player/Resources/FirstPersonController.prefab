@@ -1337,6 +1337,7 @@ GameObject:
   - component: {fileID: 1830707051}
   - component: {fileID: 2437471763932199814}
   - component: {fileID: 1619549514}
+  - component: {fileID: 7929445476090034772}
   m_Layer: 0
   m_Name: FirstPersonController
   m_TagString: Player
@@ -1377,13 +1378,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 3
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &8853277977239999149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,9 +1525,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1534,22 +1535,31 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
+      time: 0.085575104
+      value: 0.9928131
+      inSlope: -3.7825818
+      outSlope: -3.7825818
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.37307206
+    - serializedVersion: 3
+      time: 0.20149264
+      value: 0.5584996
+      inSlope: -2.0553403
+      outSlope: -2.0553403
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.586892
+      outWeight: 0.09060155
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -0.05960518
+      outSlope: -0.05960518
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.20465451
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1599,6 +1609,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &7929445476090034772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8853277977239999138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb6a0e9cb9127304b9cd780491b1707d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dist: 0
+  prevPosition: {x: 0, y: 0, z: 0}
+  _as: {fileID: 0}
 --- !u!1 &9180676215124715845
 GameObject:
   m_ObjectHideFlags: 0

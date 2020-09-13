@@ -1,7 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using Normal.Realtime;
+
 
 public class Offering : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class Offering : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            GetComponent<RealtimeTransform>().RequestOwnership();
             other.gameObject.GetComponentInChildren<gameController>().hasOffering = true;
-            GetComponent<NavMeshAgent>().enabled = false;
+
             transform.position = new Vector3(1, -5, 1);
         }
     }
