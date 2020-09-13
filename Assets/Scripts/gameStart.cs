@@ -11,13 +11,24 @@ public class gameStart : MonoBehaviour
     public gameController _gamecontroller;
     public AudioListener _listener;
     private RealtimeView _realtime;
+    public GameObject[] Offerings;
     // Start is called before the first frame update
 
 
     void Start()
     {
 
+        Offerings = GameObject.FindGameObjectsWithTag("offering");
+        foreach (GameObject offer in Offerings)
+        {
+            RealtimeTransform trans = offer.GetComponent<RealtimeTransform>();
+            Debug.Log(trans.ownerID);
+            if (trans.isOwnedByWorld)
+            {
+                trans.RequestOwnership();
+            }
 
+        }
         _directionalLight = GameObject.Find("Directional Light");
 
         _directionalLight.GetComponent<directLight>().SetIntensity(75);

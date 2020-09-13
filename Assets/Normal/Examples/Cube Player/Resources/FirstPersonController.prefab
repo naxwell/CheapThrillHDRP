@@ -1397,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 8853277977239999139}
-  speed: 2
+  speed: 3
   gravity: -19.62
   groundCheck: {fileID: 8853277975895374811}
   groundDistance: 0.4
@@ -1502,6 +1502,7 @@ MonoBehaviour:
   _directionalLight: {fileID: 0}
   _gamecontroller: {fileID: 0}
   _listener: {fileID: 0}
+  Offerings: []
 --- !u!82 &1619549514
 AudioSource:
   m_ObjectHideFlags: 0
