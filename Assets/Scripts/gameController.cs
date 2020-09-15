@@ -7,11 +7,11 @@ public class gameController : MonoBehaviour
 {
 
     public GameObject Player;
-    [Header("Lurker Shit")]
-    public GameObject _lurker;
-    public bool _hasLuker = false;
-    private RealtimeTransform _lurkerRealtime;
-    private Lurker _lurkScript;
+    // [Header("Lurker Shit")]
+    // public GameObject _lurker;
+    // public bool _hasLuker = false;
+    // private RealtimeTransform _lurkerRealtime;
+    // private Lurker _lurkScript;
 
     [Header("Direction Light Control")]
 
@@ -35,15 +35,16 @@ public class gameController : MonoBehaviour
     [Header("Offering Stuff")]
     public bool hasOffering = false;
     public bool inOfferingZone = false;
+    public GameObject currentOffering;
 
 
 
     void Start()
     {
         //_lurker = GameObject.Find("Lurker");
-        _lurker = transform.parent.GetChild(6).gameObject;
-        _lurkerRealtime = _lurker.GetComponent<RealtimeTransform>();
-        _lurkScript = _lurker.GetComponent<Lurker>();
+        // _lurker = transform.parent.GetChild(6).gameObject;
+        // _lurkerRealtime = _lurker.GetComponent<RealtimeTransform>();
+        // _lurkScript = _lurker.GetComponent<Lurker>();
         _lightSource = GameObject.Find("Directional Light").GetComponent<Light>(); ;
         _flickerScript = _lightSource.GetComponent<syncLightFlicker>();
         _audioSync = transform.parent.GetChild(3).GetComponent<audioSync>();
@@ -74,13 +75,13 @@ public class gameController : MonoBehaviour
         }
 
 
-        if (Input.GetButtonDown("xboxX") && _hasLuker)
-        {
-            _lurkScript.startLurk();
+        // if (Input.GetButtonDown("xboxX") && _hasLuker)
+        // {
+        //     _lurkScript.startLurk();
 
-        }
+        // }
 
-        if (Input.GetButtonDown("xboxA") && _hasLightingControl)
+        if (Input.GetButtonDown("xboxX") && _hasLightingControl)
         {
             if (_lightSource.intensity == 75)
             {
@@ -116,6 +117,9 @@ public class gameController : MonoBehaviour
         if (Input.GetButtonDown("xboxA") && hasOffering && inOfferingZone)
         {
             hasOffering = false;
+            currentOffering.GetComponent<Offering>().target = null;
+            currentOffering.GetComponent<Offering>().isFollowing = false;
+            currentOffering.transform.position = new Vector3(0, -3, 0);
             StartCoroutine(playerHighlight());
             Debug.Log("REVEAL OTHER PLAYERS");
         }

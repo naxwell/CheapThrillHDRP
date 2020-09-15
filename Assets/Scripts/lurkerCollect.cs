@@ -22,7 +22,7 @@ public class lurkerCollect : MonoBehaviour
 
     void OnTriggerEnter()
     {
-        _gameController._hasLuker = true;
+        // _gameController._hasLuker = true;
     }
 
 

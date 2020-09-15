@@ -124,7 +124,6 @@ MonoBehaviour:
   flashlightImage: {fileID: 2800000, guid: 01e9babb2af33a74a892e39a067c41dd, type: 3}
   environmentalLighting: {fileID: 2800000, guid: c931891ce111bf046a3048fe3921ea7e,
     type: 3}
-  lurkerImage: {fileID: 2800000, guid: d0498a65211dd5742a525f1487556371, type: 3}
   soundImage: {fileID: 2800000, guid: 435d4daccb05ce647aa82265aa85fa94, type: 3}
   crunchImage: {fileID: 2800000, guid: 13effd6e51da3204399168f6624dc819, type: 3}
 --- !u!1 &1160747205
@@ -171,8 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
-  _lurker: {fileID: 0}
-  _hasLuker: 0
   _lightSource: {fileID: 0}
   _hasLightingControl: 0
   _flashlight: {fileID: 0}
@@ -183,6 +180,7 @@ MonoBehaviour:
   _hasCrunchControl: 0
   hasOffering: 0
   inOfferingZone: 0
+  currentOffering: {fileID: 0}
 --- !u!1 &1470272028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1154,7 +1152,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 40
   field of view: 80
   orthographic: 0
   orthographic size: 5

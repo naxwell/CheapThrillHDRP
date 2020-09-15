@@ -16,7 +16,7 @@ public class powerUpUI : MonoBehaviour
     public Texture2D empty;
     public Texture2D flashlightImage;
     public Texture2D environmentalLighting;
-    public Texture2D lurkerImage;
+    // public Texture2D lurkerImage;
     public Texture2D soundImage;
     public Texture2D crunchImage;
 
@@ -40,35 +40,35 @@ public class powerUpUI : MonoBehaviour
             yButton.texture = empty;
         }
 
-        if (_gameController._hasLightingControl && bButton.texture != environmentalLighting)
+        if (_gameController._hasLightingControl && xButton.texture != environmentalLighting)
         {
-            bButton.texture = environmentalLighting;
+            xButton.texture = environmentalLighting;
         }
-        else if (!_gameController._hasLightingControl && bButton.texture != empty)
-        {
-            bButton.texture = empty;
-        }
-
-        if (_gameController._hasLuker && xButton.texture != lurkerImage)
-        {
-            xButton.texture = lurkerImage;
-        }
-        else if (!_gameController._hasLuker && xButton.texture != empty)
+        else if (!_gameController._hasLightingControl && xButton.texture != empty)
         {
             xButton.texture = empty;
         }
 
-        if (_gameController._hasScreamControl && aButton.texture != soundImage)
+        // if (_gameController._hasLuker && xButton.texture != lurkerImage)
+        // {
+        //     xButton.texture = lurkerImage;
+        // }
+        // else if (!_gameController._hasLuker && xButton.texture != empty)
+        // {
+        //     xButton.texture = empty;
+        // }
+
+        if (_gameController._hasScreamControl && bButton.texture != soundImage)
         {
-            aButton.texture = soundImage;
+            bButton.texture = soundImage;
         }
-        else if (_gameController._hasCrunchControl && aButton.texture != crunchImage)
+        else if (_gameController._hasCrunchControl && bButton.texture != crunchImage)
         {
-            aButton.texture = crunchImage;
+            bButton.texture = crunchImage;
         }
-        else if (!_gameController._hasScreamControl && !_gameController._hasCrunchControl && aButton.texture != empty)
+        else if (!_gameController._hasScreamControl && !_gameController._hasCrunchControl && bButton.texture != empty)
         {
-            aButton.texture = empty;
+            bButton.texture = empty;
         }
 
     }

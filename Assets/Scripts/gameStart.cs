@@ -18,17 +18,17 @@ public class gameStart : MonoBehaviour
     void Start()
     {
 
-        // Offerings = GameObject.FindGameObjectsWithTag("offering");
-        // foreach (GameObject offer in Offerings)
-        // {
-        //     RealtimeTransform trans = offer.GetComponent<RealtimeTransform>();
-        //     Debug.Log(trans.ownerID);
-        //     if (trans.isOwnedByWorld)
-        //     {
-        //         trans.RequestOwnership();
-        //     }
+        Offerings = GameObject.FindGameObjectsWithTag("offering");
+        foreach (GameObject offer in Offerings)
+        {
+            RealtimeTransform trans = offer.GetComponent<RealtimeTransform>();
+            Debug.Log(trans.ownerID);
+            if (trans.isOwnedByWorld)
+            {
+                trans.RequestOwnership();
+            }
 
-        // }
+        }
         _directionalLight = GameObject.Find("Directional Light");
 
         _directionalLight.GetComponent<directLight>().SetIntensity(75);

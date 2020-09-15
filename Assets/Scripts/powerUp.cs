@@ -8,7 +8,7 @@ public class powerUp : MonoBehaviour
 {
     [Header("Available Power Up")]
 
-    private string[] powerUps = { "lurker", "lightingControl", "flashlightControl", "scream", "crunch" };
+    private string[] powerUps = { "lightingControl", "flashlightControl", "scream", "crunch" };
     public string availPowerUp;
     private string prevPowerUp;
 
@@ -65,10 +65,10 @@ public class powerUp : MonoBehaviour
 
         }
 
-        if (availPowerUp == "lurker")
-        {
-            _gameController._hasLuker = true;
-        }
+        // if (availPowerUp == "lurker")
+        // {
+        //     _gameController._hasLuker = true;
+        // }
 
         if (availPowerUp == "flashlightControl")
         {
@@ -91,7 +91,7 @@ public class powerUp : MonoBehaviour
         transform.position = newLoc;
 
 
-        _as.Play();
+        // _as.Play();
 
         StartCoroutine(NewPowerUp());
 

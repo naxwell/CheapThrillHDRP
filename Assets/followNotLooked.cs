@@ -17,13 +17,17 @@ public class followNotLooked : MonoBehaviour
     void Start()
     {
         m_Renderer = GetComponentInChildren<Renderer>();
-        Players = GameObject.FindGameObjectsWithTag("Player");
-        target = Players[Random.Range(0, Players.Length)].transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            Players = GameObject.FindGameObjectsWithTag("Player");
+            target = Players[Random.Range(0, Players.Length)].transform;
+        }
         if (!m_Renderer.isVisible)
         {
             move = true;

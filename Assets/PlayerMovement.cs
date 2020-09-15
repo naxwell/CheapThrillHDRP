@@ -80,11 +80,11 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
 
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        // if (Input.GetButtonDown("Jump") && isGrounded)
+        // {
+        //     velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
 
-        }
+        // }
         // dist = Vector3.Distance(prevPosition, transform.position);
         // if (dist < 0.01)
         // {
