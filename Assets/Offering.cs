@@ -18,6 +18,7 @@ public class Offering : MonoBehaviour
     public GameObject target;
     RealtimeTransform _realtimeTrans;
     RealtimeView _realtimeView;
+
     // Start is called before the first frame update
     void Start()
     {
